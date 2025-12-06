@@ -64,3 +64,46 @@ where address2 = ' ';
   and empty String means, the String has an address in the memory, but it contains just 
   a space or no characters at all.
 - Learn RegExp i.e. Regular Expression in free time.
+
+---
+
+## III] `ORDER BY` with and without `DISTINCT`:
+✅ **SQL Query Execution: ORDER BY and DISTINCT**
+
+The key difference lies in when the data is removed during the logical processing order. 
+Assume the Original Table has 10 columns.
+
+### **Case 1: Without DISTINCT (e.g., `SELECT col1, col2 ...`)**
+
+The `SELECT` clause only defines the final output shape; it doesn't immediately 
+discard data internally.
+
+| **Stage**        | **What Happens**                         | **Columns in Intermediate Table**       |
+| ---------------- | ---------------------------------------- | --------------------------------------- |
+| **FROM/WHERE**   | Data is fetched and filtered.            | 10 columns                              |
+| **SELECT**       | Output columns defined, expressions run. | 10 columns (internally still available) |
+| **ORDER BY**     | Data is sorted.                          | 10 columns (can sort by any of them)    |
+| **Final Output** | Result is displayed to user.             | 2 columns (e.g., col1, col2)            |
+
+**Conclusion:**
+`ORDER BY` can use hidden columns because the full dataset is still available 
+internally when the sorting occurs.
+
+### **Case 2: With DISTINCT (e.g., `SELECT DISTINCT col1, col2 ...`)**
+
+The `DISTINCT` clause forces the database to finalize the unique set of rows before 
+sorting, permanently discarding associated hidden data.
+
+| **Stage**        | **What Happens**                | **Columns in Intermediate Table**              |
+| ---------------- | ------------------------------- | ---------------------------------------------- |
+| **FROM/WHERE**   | Data is fetched and filtered.   | 10 columns                                     |
+| **SELECT**       | Output columns defined.         | 10 columns (internally)                        |
+| **DISTINCT**     | Duplicates removed permanently. | Only 2 columns (hidden data is lost)           |
+| **ORDER BY**     | Data is sorted.                 | Only 2 columns (cannot sort by hidden columns) |
+| **Final Output** | Result is displayed to user.    | 2 columns (e.g., col1, col2)                   |
+
+**Conclusion:**
+`ORDER BY` cannot use hidden columns because they are permanently removed from the 
+intermediate table by the `DISTINCT` operation which runs earlier in the process.
+
+---

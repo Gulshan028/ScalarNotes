@@ -228,17 +228,28 @@ tables and relate them.
      location. Thus, if `array[0][0]` is stored at say `100` memory location, then `array[4][5]` will be
      stored at `(100+4*10*4+5*4) = 280` memory location, considering the fact that each row contains 10 integers.
      Thus, integer at 4th row and 5th column will be stored at `280` memory location.
-   - In the same way, in the database, the rows are stored continuously. Thus, if List and array, etc
-     are allowed, then data retrieving data would be complex as `List` doesn't have fix size. 
-   - This is not the only reason. There are multiple other reasons as well.
-   - The explanation above uses how arrays work in RAM (e.g., in C++ or Java) as an 
-     analogy for how databases store data on disk. This is a good teaching tool, 
-     but the reality is more complex.
-        - Database Storage is More Complex: Modern database storage engines don't just lay out 
-        rows in a single, continuous block of memory like a C++ array. They use sophisticated 
-        structures like pages (fixed-size blocks, e.g., 8KB), heaps, B+Trees, and indexes. 
-        A row might span multiple pages. The database has to manage pointers and offsets 
-        within these pages.
+   - This 2D array formula works ONLY for:**
+      - ✓ **C/C++ static/stack-allocated arrays** like `int arr[5][10];`
+ 
+   - **Your formula does NOT work for:**
+     - ✗ **Java** - Always uses array of references
+     - ✗ **Python** - Lists of lists (separate objects)
+     - ✗ **C/C++ dynamically allocated arrays** - `int** arr` creates pointers to separate allocations
+
+   - Why C/C++ Static Arrays Are Special:
+
+     - When you declare `int arr[5][10];` in C/C++, the compiler allocates **one contiguous block** of 5×10×4 = 200 bytes. This is truly a 2D layout flattened in memory in row-major order, making your mathematical formula valid.
+
+   - In contrast, Java's `int[][] arr = new int[5][10];` creates:
+     1. An array of 5 references
+     2. Each reference points to a separate array of 10 integers
+
+   - These separate arrays can be scattered anywhere in memory (on the heap), so there's no
+mathematical relationship between `arr[0][0]` and `arr[4][5]`'s memory addresses.
+- In the same way, in the database, the rows are stored continuously. Thus, if List and array, etc are allowed, then data retrieving data would be complex as List doesn't have fix size.
+- This is not the only reason. There are multiple other reasons as well.
+- The explanation above uses how arrays work in RAM (e.g., in C++ or Java) as an analogy for how databases store data on disk. This is a good teaching tool, but the reality is more complex.
+     - **Database Storage is More Complex:** Modern database storage engines don't just lay out rows in a single, continuous block of memory like a C++ array. They use sophisticated structures like pages (fixed-size blocks, e.g., 8KB), heaps, B+Trees, and indexes. A row might span multiple pages. The database has to manage pointers and offsets within these pages.
 
 ---
 
@@ -275,7 +286,7 @@ This is the most important reason. If a cell contains multiple values, you canno
 
 If you store multiple values in one cell, updating one part of that data becomes messy and risky.
 
-*   **Problem:** In the `skills` example, changing "Java" to "JavaScript" for a user requires parsing the string, finding the correct part, and replacing it without messing up the commas and spaces. This is a complex operation for a simple update and极易出错 (very prone to errors).
+*   **Problem:** In the `skills` example, changing "Java" to "JavaScript" for a user requires parsing the string, finding the correct part, and replacing it without messing up the commas and spaces. This is a complex operation for a simple update and Error-prone (very prone to errors).
 *   **Solution:** With a separate table, you simply `UPDATE` or `DELETE` a single row. It's clean, simple, and unambiguous.
 
 ---

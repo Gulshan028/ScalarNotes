@@ -12,9 +12,7 @@
 ## II] `IN` clause:
 1. Question: In MySQL, if a Subquery returns a row or a column or a table, then can 
    we use `IN` clause for all of these subqueries?
-2. Answer:
-   
-The `IN` clause in MySQL is designed to work with a **single column of values**. 
+2. Answer: The `IN` clause in MySQL is designed to work with a **single column of values**. 
 However, the subquery you use to provide those values can return different structures.
 The key is understanding how MySQL handles each case.
 
@@ -366,3 +364,17 @@ correlate a large subquery table with a smaller outer result set.
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
+
+
+IN clause: The inner subquery runs once at the beginning because it is independent of 
+the outer query. It collects all possible outcomes into a set.
+EXISTS clause: The inner subquery runs (conceptually) for each row of the outer query,
+checking for the existence of a match in the inner table, and stops as soon as it 
+finds one.
+This theoretical distinction is crucial for understanding how the two clauses work.
+However, the key practical nuance, as mentioned earlier, is that modern database 
+query optimizers are incredibly sophisticated. They often translate both statements 
+internally into the most efficient execution plan (usually a form of semi-join), 
+often blurring the performance difference between them in real-world scenarios.
+So, while your description of the logical operation is correct, the physical 
+execution might look very similar for both in a high-performance database system.

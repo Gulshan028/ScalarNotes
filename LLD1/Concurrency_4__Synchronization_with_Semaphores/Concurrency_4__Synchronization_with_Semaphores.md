@@ -166,17 +166,17 @@ These operations are guaranteed to be executed as a single, indivisible unit,
 preventing data corruption in multi-threaded environments.
 Key methods of AtomicInteger include:
 
-• `get()`: Returns the current value of the AtomicInteger.
-• `set(int newValue)`: Atomically sets the value to newValue.
-• `getAndSet(int newValue)`: Atomically sets the value to newValue and returns the old value.
-• `compareAndSet(int expectedValue, int newValue)`: Atomically sets the value to newValue if the current value equals expectedValue. Returns true if the update was successful, false otherwise. This method is fundamental for implementing more complex atomic operations.
-• `incrementAndGet()`: Atomically increments the current value by one and returns the updated value.
-• `decrementAndGet()`: Atomically decrements the current value by one and returns the updated value.
-• `getAndIncrement()`: Atomically increments the current value by one and returns the old value.
-• `getAndDecrement()`: Atomically decrements the current value by one and returns the old value.
-• `addAndGet(int delta)`: Atomically adds delta to the current value and returns the updated value.
-• `getAndAdd(int delta)`: Atomically adds delta to the current value and returns the old value.
-• `weakCompareAndSet(int expectedValue, int newValue)`: Similar to compareAndSet, but may spuriously fail and does not provide ordering guarantees. It is typically used in performance-critical scenarios where a stronger guarantee is not strictly necessary.
+- `get()`: Returns the current value of the AtomicInteger.
+- `set(int newValue)`: Atomically sets the value to newValue.
+- `getAndSet(int newValue)`: Atomically sets the value to newValue and returns the old value.
+- `compareAndSet(int expectedValue, int newValue)`: Atomically sets the value to newValue if the current value equals expectedValue. Returns true if the update was successful, false otherwise. This method is fundamental for implementing more complex atomic operations.
+- `incrementAndGet()`: Atomically increments the current value by one and returns the updated value.
+- `decrementAndGet()`: Atomically decrements the current value by one and returns the updated value.
+- `getAndIncrement()`: Atomically increments the current value by one and returns the old value.
+- `getAndDecrement()`: Atomically decrements the current value by one and returns the old value.
+- `addAndGet(int delta)`: Atomically adds delta to the current value and returns the updated value.
+- `getAndAdd(int delta)`: Atomically adds delta to the current value and returns the old value.
+- `weakCompareAndSet(int expectedValue, int newValue)`: Similar to compareAndSet, but may spuriously fail and does not provide ordering guarantees. It is typically used in performance-critical scenarios where a stronger guarantee is not strictly necessary.
 
 These methods leverage underlying CPU-level operations like Compare-And-Swap (CAS) 
 to achieve atomicity without requiring explicit locking mechanisms, often leading to 
