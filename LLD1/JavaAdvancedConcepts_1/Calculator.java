@@ -1,4 +1,4 @@
-package LLD1.JavaAdvancesConcepts_1;
+package LLD1.JavaAdvancedConcepts_1;
 
 public class Calculator<X,Y> {
 

@@ -118,8 +118,7 @@ Entities = Persistent objects with database-backed storage.
 ## III] Java's Principle and its 3 Pillars:
 ### 3.1) Abstraction
 
-Java has **1 Principle** — `Abstraction`, and **3 Pillars** — `Encapsulation`, `Polymorphism`, `Inheritance`.  
-These 3 pillars help achieve the principle (ex: living healthy life :- Principle; Diet, exercise, sound sleep are pillars).
+Java has **4 Pillars** `Abstraction`, `Encapsulation`, `Polymorphism`, `Inheritance`.  
 
 1) *Abstraction* in Java hides complex implementation and shows only necessary details.  
 It helps focus on *what* an object does rather than *how*.  

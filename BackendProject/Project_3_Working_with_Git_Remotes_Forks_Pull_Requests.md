@@ -264,6 +264,7 @@ time download, I will use the`git pull` command as shown below:
 `git pull origin main` does **two things**:
 
 ✅ **1) `git fetch origin main` :- Fetches** the latest commits from the remote repository named **origin**, branch **main**
+
 ✅ **2) `git merge origin/main` :- Merges** those commits into your current local branch
 
 So in simple words:
@@ -283,8 +284,8 @@ exact place.
 ---
 
 ## V] Difference between `git push`, `git pull` and `git clone`:
-1. When we perform `git push origin main`; this command only the pushes the mentioned
-   branch. It doesn't all the branches at local.
+1. When we perform `git push origin main`; this command only pushes the mentioned
+   branch. It doesn't push all the branches at local.
 2. Now, imagine a remote repo has three branches, viz. `main`, `b1`, `b2`, etc.
 When you do:
 
@@ -293,6 +294,7 @@ git clone <repo-url>
 ```
 
 ✅ Git **downloads the entire repository data**, including **all branches**, into `.git`
+
 ❌ But it **only creates one local branch** (usually `main` or `master`)
 
 All other branches exist only as **remote-tracking branches**. They aren't present at local.

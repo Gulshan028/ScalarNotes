@@ -67,9 +67,22 @@ Read GitHub notes from Scalar first.
 
 6. Each `Process` gets the memory(RAM) allocated. 
 
-7.  Suppose, the speed of the Core is 1 GHz. It means, it can perform 10<sup>9</sup> operations in 1 second of time.
-    Say, 1 thread requires 10<sup>6</sup> operations. Still, it will be done in 1 millisecond of time.
+7. Refined Note: CPU Speed vs. Execution Time
 
+* **Theoretical Calculation:** At a clock speed of **1 GHz** ( cycles/sec), a task requiring ** operations** mathematically takes **1 millisecond**.
+* **The Reality Gap:** In practice, the execution time will vary due to:
+* **IPC (Instructions Per Cycle):** One operation may take multiple clock cycles, or the CPU might execute multiple operations in one cycle (superscalar execution).
+* **Memory Latency:** If the thread needs to fetch data from RAM, the CPU "stalls," extending the time beyond the theoretical 1ms.
+* **OS Overhead:** Context switching (swapping between threads) consumes cycles that aren't dedicated to the thread's specific task.
+
+
+
+> **Key Takeaway:** While GHz tells us the "heartbeat" of the CPU, the actual time to complete a thread is:
+> $$\text{Time} = \frac{\text{Total Instructions}}{\text{Clock Speed} \times \text{IPC}} + \text{System Latency}$$
+
+---
+
+Would you like me to simplify this further, or shall we move on to how **Parallelism** (using multiple cores) affects this calculation?
 ---
 
 ### 1.3) Threads:

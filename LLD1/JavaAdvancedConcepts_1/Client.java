@@ -1,4 +1,4 @@
-package LLD1.JavaAdvancesConcepts_1;
+package LLD1.JavaAdvancedConcepts_1;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -274,18 +274,23 @@ sequence without a merge commit.
 It says that we tried to auto merge but because of the conflict in the A.txt file, we 
 were unable to do so. Hence, the Automatic merge failed. It asks us to fix conflicts and 
 then commit the result.
+
 4. Then,  A.txt file is opened in front of us where data from both the files is shown.
    The data in the A.txt file from the current main branch is shown after "<<<<<<< HEAD"
    this symbol. Then, there is "=======" this symbol in the next line which acts as 
    separator for the data in the two files.
    Now, the data in the A.txt file from the feature2 branch is shown followed by 
    ">>>>>>> feature2" symbol.
+
 5. Now, as a developer, I have full control of which version to keep or even change the content
    entirely. 
+
 6. Thus I did the required changes and added the file to the staging area after resolving 
    the conflict using `git add .` then I committed the changes with a message.
+
 7. With these steps, the two branches are merged. We can confirm it by checking `git log`
    there we can see that the latest commit is of merge commit, as shown below.
+
 ```
 PS C:\Users\gulsh\OneDrive\Desktop\GitDemo1> git log
 commit f54fc528e5341f87c1aafa5f1331e9bd8d405fa0 (HEAD -> main)
@@ -296,6 +301,7 @@ Date:   Thu Oct 30 21:35:49 2025 +0530
 in this message, in the 3rd line, we can see that the merge operation has been successful 
 after resolving the merge conflict. This 3rd line shows the latest commit id of each of the 
 parents of the merge commit. Thus, feature2 branch has been merged into the main branch.
+
 8. Now, if you check A.txt file in the main branch then we will see the resolved content
    whereas if we checkout to feature2 branch and see the A.txt file then, we will continue to 
    see the old content of the A.txt file in the feature2 branch.
@@ -352,6 +358,7 @@ parents of the merge commit. Thus, feature2 branch has been merged into the main
    my doubt is simple during the new commit E on feature branch, does this commit have
    data about the main branch too? Since, each commit takes the snapshot of the entire
    project and I feel main branch is also the part of the project codebase.
+
    Ans:-
    Great question! This is a common point of confusion. Let me clarify:
 

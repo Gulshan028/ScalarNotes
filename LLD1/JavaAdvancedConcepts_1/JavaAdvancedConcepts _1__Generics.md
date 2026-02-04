@@ -93,7 +93,7 @@ highlighted with yellow colour when this syntax is used. The second one is recom
   The first syntax, above, is called as 'Raw Data type in Generics'. For ex:
 
 ```java
-import LLD1.JavaAdvancesConcepts_1.Calculator;
+import LLD1.JavaAdvancedConcepts_1.Calculator;
 
 Calculator boolCalculator = new Calculator(true, true);
 ```
@@ -833,15 +833,21 @@ objs.add(42);      // Works
 ---
 
 ### 5.6) Code
+
 ```java
-package LLD1.JavaAdvancesConcepts_1;
+package LLD1.JavaAdvancedConcepts_1;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Animal extends LivingBeings{} // Assuming LivingBeings is a superclass of Animal
-class LivingBeings  {} 
-class Cat extends Animal {}
+class Animal extends LivingBeings {
+} // Assuming LivingBeings is a superclass of Animal
+
+class LivingBeings {
+}
+
+class Cat extends Animal {
+}
 
 public class Client {
     public static void main(String[] args) {

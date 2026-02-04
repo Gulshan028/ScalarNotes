@@ -87,10 +87,8 @@ a particular class.
 
 #### [1.1] ArrayList:
 - It is a class which implements the `List` interface.
-- As we all know, it is the dynamic array. It has a load factor, say, 0.75. So, as soon as the 75% space of the array is
-   filled, the new array is created at a different location and all the previous data is copied into this new array.
-- The Time Complexity of ArrayList is Amortized O(1). It means, it is most of the time O(1) but sometimes it may go beyond O(1) 
-  because of copying the elements from old array to new array. However, this doesn't happen frequently, hence the T.C. is almost O(1).
+- **ArrayList** is a dynamic array that grows by 1.5x when capacity is reached (Remember, Load factor is for **HashMap**, not ArrayList), giving amortized O(1) insertion at the end. It's not thread-safe. ArrayList implements `RandomAccess` marker interface for O(1) index access.
+- `ArrayList` stores object references in an array. During resizing, only these references are copied to a new, larger array using `System.arraycopy()`. The actual objects remain in the heap and aren't duplicated—so it's a shallow copy of the array, not a deep copy of the objects.
 - On seeing the official implementation, you will see that ArrayList implements `RandomAccess` which enables to access any random index of the Arraylist.
 
 #### [1.2] LinkedList:
@@ -155,9 +153,9 @@ a particular class.
 - It is `HashTable` based data structure.
 - The **load factor** in a `HashSet` (or `HashMap`) is a measure of **how full the hash table is allowed to get before resizing (rehashing)** to maintain efficient O(1) operations.
 - Mathematically, it is defined as:  
-  $$
-  \text{Load Factor} = \frac{\text{Total number of elements}}{\text{Total number of buckets (array size)}}
-  $$
+$$
+\text{Load Factor} = \frac{\text{Total number of elements}}{\text{Total number of buckets (array size)}}
+$$
 - **Default load factor in Java = 0.75** (i.e., when the average bucket has **0.75 elements**, the HashSet resizes to reduce collisions).
 - It helps balance **memory usage** vs. **performance** (lower load factor → fewer collisions but more memory).
 #### [3.2] LinkedHashSet:

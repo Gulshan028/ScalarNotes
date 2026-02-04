@@ -218,7 +218,7 @@ Stream<Integer> integerStream = list.stream();
 - we can also create a stream directly as below:
 
 ```java
-import LLD1.JavaAdvancesConcepts_1.Cat;
+import LLD1.JavaAdvancedConcepts_1.Cat;
 
 import java.util.stream.Stream;
 

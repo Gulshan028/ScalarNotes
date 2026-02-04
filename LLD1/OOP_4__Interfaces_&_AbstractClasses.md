@@ -184,7 +184,7 @@ created, we get runtime error. As Dog must be having more methods and attributes
    **Interfaces specify a set of methods that a class must implement, but they do not provide the method's body**, meaning they do not dictate how the actions should be performed.
 2. We cannot create objects of an Interface.
 3. Generally, we start name of an Interface with capital 'I' alphabet. ex: ICalculator, etc. This is not a rule.
-4. `implements` is the word to be used for a `class` to be able to use an `Interface`. ex: 
+4. `implements` is the word to be used for a `class` to be able to use as an `Interface`. ex: 
     ```java
           public class Calculator implements ICalculator{};
     ```

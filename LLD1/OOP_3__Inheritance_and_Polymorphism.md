@@ -672,12 +672,12 @@ The Animal is sleeping
 
 #### (4) Summary Table: Overriding vs. Hiding
 
-| Feature | Method Overriding (Instance Methods) | Method Hiding (Static Methods) |
-| :--- | :--- | :--- |
-| **Methods Involved** | Instance methods (`non-static`) | Static methods (`static`) |
-| **Execution Mechanism** | **Runtime Polymorphism** (Dynamic Binding). Based on the **object's actual type**. | **Compile-time** (Static Binding). Based on the **reference type**. |
-| **`@Override` Annotation** | Required/Recommended | **Invalid** (causes compiler error) |
-| **Purpose** | To change the **behavior** of an method for a specific object type. | To have a method with the same name that is specific to a **class**. |
+| Feature | Method Overriding (Instance Methods)                                                           | Method Hiding (Static Methods) |
+| :--- |:-----------------------------------------------------------------------------------------------| :--- |
+| **Methods Involved** | Instance methods (`non-static`)                                                                | Static methods (`static`) |
+| **Execution Mechanism** | **Runtime Polymorphism** (Dynamic Binding). Based on the **object's actual type**.             | **Compile-time** (Static Binding). Based on the **reference type**. |
+| **`@Override` Annotation** | Required/Recommended                                                                           | **Invalid** (causes compiler error) |
+| **Purpose** | To change the **behavior** of a method for a specific object type.                             | To have a method with the same name that is specific to a **class**. |
 | **Polymorphism** | **Yes.** A superclass reference can point to a subclass object and call the overridden method. | **No.** The method called depends entirely on how the variable is declared. |
 
 ---
