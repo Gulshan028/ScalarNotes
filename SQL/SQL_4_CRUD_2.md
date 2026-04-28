@@ -105,5 +105,8 @@ sorting, permanently discarding associated hidden data.
 **Conclusion:**
 `ORDER BY` cannot use hidden columns because they are permanently removed from the 
 intermediate table by the `DISTINCT` operation which runs earlier in the process.
+Look, if the hidden columns are present, then they introduce ambiguity about which one 
+out of all the duplicate records to consider based on hidden column.
+This ambiguity forces to not use the hidden columns.
 
 ---

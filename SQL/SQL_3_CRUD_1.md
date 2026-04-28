@@ -12,7 +12,7 @@
 
 ## I] General info & SQL Queries:
 - Read Scalar GitHub notes first and then continue here.
-- **SQL queries are CASE-SENSITIVE.** But it's better to keep SQL syntax in uppercase
+- **SQL queries aren't CASE-SENSITIVE.** But it's better to keep SQL syntax in uppercase
   and table_names, column_names, etc in lowercase.
 - When we set up sakila database into our MySQL, then we get two files. We have to
   execute both the files. The first file `sakila-schema` creates the tables into the 

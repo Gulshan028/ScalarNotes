@@ -162,7 +162,7 @@ $$
 - It is a class which implements the `Set` interface.
 - The insertion order of elements is **preserved**.
 - Please go through the official implementation.
-- It is based on `Doubly LinkedList` and `HashMap`.
+- It extends `HashSet` and is internally based on `Doubly LinkedList` and `LinkedHashMap`.
 
 #### [3.3] << SortedSet >>:
 - It is an interface which extends `Set` interface.
